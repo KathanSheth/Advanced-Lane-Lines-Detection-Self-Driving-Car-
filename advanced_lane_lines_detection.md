@@ -28,6 +28,7 @@ The goals / steps of this project are the following:
 [image10]: ./output_images/window.png "Window"
 [image11]: ./output_images/visualization.png "Visualization"
 [image12]: ./output_images/output.png "Output"
+[image13]: ./output_images/output2.png "Output2"
 
 
 [video1]: ./output_video/project_video_output_final.mp4 "Video"
@@ -65,7 +66,7 @@ Original and Undistorted frame are shown in below images. After calibrating the 
 
 #### 2. Thresholding
 
-I used a combination of color and gradient thresholds to generate a binary image. First, I converted Original image to HLS colorspace. Then, I have splitted it into H,L and S channel and used S channel for color thresholding and combined it with x gradient thresholding.  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+I used a combination of color and gradient thresholds to generate a binary image. ~~First, I converted Original image to HLS colorspace. Then, I have splitted it into H,L and S channel and used S channel for color thresholding~~ I used R channel from RGB color space (because I was getting some errors in s channel) and combined it with x gradient thresholding.  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
 
 ![alt text][image5]
 
@@ -104,6 +105,7 @@ I used histogram technique to find the maximum pixels in the transformed image a
 The result looks like following:
 
 Histogram image:
+
 ![alt text][image9]
 
 Visualization of lines:
@@ -119,6 +121,12 @@ I implemented this step in last cell. This code merge original image with the ab
 
 ![alt text][image12]
 
+Following output image shows Left and Right Curvature and distance of vehicle from the center of an image.
+
+![alt text][image13]
+
+
+
 ---
 
 ### Pipeline (video)
@@ -131,4 +139,6 @@ Here's a [link to my video result](./output_video/project_video_output_final.mp4
 
 ### Discussion
 
-I learned a lot from this project. I found difficulties in shadow part of the video and I feel that I can do better in my pipeline which is independent of "COLOR". Also, the next thing I would like to save previous frames slope (Average Slope) values for left and right lanes.
+I learned a lot from this project. I found difficulties in shadow part of the video and I feel that I can do better in my pipeline which is independent of "COLOR". Also, the next thing I would like to save previous frames slope (Average Slope) values for left and right lanes. 
+
+Also, I doubt that if my pipeline will work for night (very dark) images. I feel that I still need to improve my thresholding technique (which is more independent of colorspace) to make my pipeline robust!!
